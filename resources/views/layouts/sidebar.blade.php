@@ -1,7 +1,72 @@
-<div id="sidebar" class="sidebar">
-            <!-- begin sidebar scrollbar -->
+ 
+ <aside class="left-sidebar">
+            <div class="d-flex no-block nav-text-box align-items-center">
+                <span><img src="/images/hciss-logo-1.png" style="height:40px;width:auto" alt="elegant admin template" class="dark-logo"></span>
+                <a class="waves-effect waves-dark ml-auto hidden-sm-down" href="javascript:void(0)"><i
+                        class="ti-menu"></i></a>
+                <a class="nav-toggler waves-effect waves-dark ml-auto hidden-sm-up" href="javascript:void(0)"><i
+                        class="ti-menu ti-close"></i></a>
+            </div>
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="{{ Request::is('home') ? 'active' : '' }}"> 
+
+                            <a class="waves-effect waves-dark" href="{{url('/home')}}" aria-expanded="false"><i class="fa fa-tachometer"></i>
+                                <span class="hide-menu">Dashboard</span>
+                            </a>
+
+                        </li>
+                        <li class="{{ Request::is('blogs') ? 'active' : '' }}"> 
+                            @canany(['isSuperAdmin','isAdmin'])
+                            <a class="waves-effect waves-dark" href="{{url('/blog')}}" aria-expanded="false"><i
+                            class="fa fa-thumb-tack"></i><span class="hide-menu">Posts</span></a>
+
+                            @endcan
+                        </li>
+
+
+                        <li>
+                         @can('isSuperAdmin')
+                        <a href="{{url('/users')}}" class="waves-effect waves-dark" aria-expanded="false"><i
+                                    class="fa fa-users"></i><span class="hide-menu">Users</span>
+                                </a>
+                        @endcan
+                            </li>
+                        <li> <a class="waves-effect waves-dark" href="newsletter.html" aria-expanded="false"><i
+                                    class="fa fa-envelope"></i><span class="hide-menu">Newsletter Signups</span></a></li>
+                        <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i
+                                    class="fa fa-check-circle"></i><span class="hide-menu"></span>Demo Requests</a></li>
+                        <li> <a class="waves-effect waves-dark" href="messages.html" aria-expanded="false"><i
+                                    class="fa fa-comments"></i><span class="hide-menu"></span>Messages</a></li>
+                        <li> <a class="waves-effect waves-dark" href="settings.html" aria-expanded="false"><i
+                                    class="fa fa-cogs"></i><span class="hide-menu"></span>Settings</a></li>
+                        <li> <a class="waves-effect waves-dark" href="privacy-policy.html" aria-expanded="false"><i
+                                    class="fa fa-bookmark-o"></i><span class="hide-menu"></span>Privacy Policy</a></li>
+                        <li> <a class="waves-effect waves-dark" href="profile.html" aria-expanded="false"><i
+                                    class="fa fa-user-circle-o"></i><span class="hide-menu"></span>Profile</a></li>
+                        <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i
+                                    class="fa fa-sign-out"></i><span class="hide-menu"></span>Logout</a></li>
+                        <div class="text-center m-t-30">
+
+<!--  DEMO BUTTON-->     @canany(['isUser'])
+                            <a href="#"
+                                class="btn waves-effect waves-light btn-success hidden-md-down"> Request A Demo</a>
+                         @endcan
+                        </div>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+
+<!--        <div id="sidebar" class="sidebar">
+          
             <div data-scrollbar="true" data-height="100%">
-                <!-- begin sidebar user -->
+               
                 <ul class="nav">
                     <li class="nav-profile">
                         <div class="image">
@@ -13,8 +78,7 @@
                         </div>
                     </li>
                 </ul>
-                <!-- end sidebar user -->
-                <!-- begin sidebar nav -->
+             
                 <ul class="nav">
                     
                     <li class="{{ Request::is('home') ? 'active' : '' }}">
@@ -68,12 +132,11 @@
                             <li><a href="form_slider_switcher.html">COMPANY</a></li>
                         </ul>
                     </li>
-                    
-                    <!-- begin sidebar minify button -->
+               
                     <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
-                    <!-- end sidebar minify button -->
+                
                 </ul>
-                <!-- end sidebar nav -->
+              
             </div>
-            <!-- end sidebar scrollbar -->
-        </div>
+         
+        </div> -->
