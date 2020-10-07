@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>WAD FINANCIALS</title>
+        <title>TemplateMi</title>
 
         <link rel="icon" href="{{URL::to('img/WAD.png')}}">
         <!-- Fonts -->

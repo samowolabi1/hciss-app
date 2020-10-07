@@ -15,7 +15,7 @@
                 </div>
                 <div class="panel-body">
                     
-                    <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('userProfile') }}">
+                    <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{route('userProfile')}}">
                          @csrf
                         @if (! is_null($profile))
                         <div class="form-group">
@@ -198,7 +198,7 @@
                     <h4 class="panel-title">Change Password Here</h4>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" action="{{ route('changepass', $profile->id) }}" method="POST" name="update_product">
+                    <form class="form-horizontal" action="{{route('changepass',$staff->id)}}" method="POST" name="update_product">
                         @csrf
                         @method('PUT')
                         <fieldset>

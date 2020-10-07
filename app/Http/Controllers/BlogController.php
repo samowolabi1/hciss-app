@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Response;
 use App\User;
 use App\Blog;
 
@@ -13,8 +14,9 @@ class BlogController extends Controller
     public function index(){
 
     	$blogs = Blog::paginate(13);
+         $i = 0;
 
-    	return view('blogs.index',compact('blogs'));
+    	return view('blogs.index',compact('blogs','i'));
     }
 
     public function show($id){
@@ -35,18 +37,18 @@ class BlogController extends Controller
     		'tags' => 'bail|required',
     	]);
 
-    	return $request->all();
+    	//return $request->all();
 
     	 
-          	$file = $request->file('image');
-           $destinationPath = public_path('/blog_images/');       
-           $blogImage = date('YmdHis') . "." . $file->getClientOriginalExtension();
-           $file->move($destinationPath, $blogImage);
+          	// $file = $request->file('image');
+           // $destinationPath = public_path('/blog_images/');       
+           // $blogImage = date('YmdHis').".".$file->getClientOriginalExtension();
+           // $file->move($destinationPath, $blogImage);
         
          Blog::create([
          		'user_id' => Auth::id(),
                 'title' => $request['title'],
-                'image' => $blogImage,
+                'image' => $request['image'], //$blogImage,
                 'content' => $request['content'],
                 'tags' =>$request['tags']
             ]);

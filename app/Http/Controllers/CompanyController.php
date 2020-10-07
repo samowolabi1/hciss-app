@@ -26,8 +26,8 @@ class CompanyController extends Controller
     	// if(Auth::user()->role_id == 1){
      //       return view('users.edit');
      // 	}
-        
+        $staff = User::where('id',Auth::id())->first();
         $profile = Profile::where('user_id',Auth::id())->first();
-    	return view('users.edit', compact('profile'));
+    	return view('users.edit', compact('profile','staff'));
     }
 }

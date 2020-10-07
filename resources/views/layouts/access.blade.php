@@ -44,7 +44,7 @@
                             </button>
 
                             <!-- Branding Image -->
-                            <a class="navbar-brand" alt="" href="#">WAD FINANCIALS</a>
+                            <a class="navbar-brand" alt="" href="#">Template</a>
                     </div>
                     <!-- end mobile sidebar expand / collapse button -->
                     

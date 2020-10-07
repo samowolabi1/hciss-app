@@ -62,7 +62,7 @@
 
             <hr />
             <p class="text-center text-inverse">
-                &copy; WAD TECHNOLOGIES All Right Reserved 2019
+                &copy; 
             </p>
         </form>
     </div>
