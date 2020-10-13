@@ -16,14 +16,7 @@ class UserController extends Controller
 
     public function index(){
 
-        // if (Gate::allows('isAdmin')) {
-        // echo 'Admin user role is allowed';
-        // } else {
-        //     echo 'Admin are not allowed not allowed';
-    // }
-
         $user =  User::find(Auth::id());
-        // dd($tenant->tenant_id);
         $users = User::where('tenant_id', $user->tenant_id)->get(); 
         $roles = Role::whereIn('id',[2,3,4])->get();
         $i = 0;
@@ -44,7 +37,7 @@ class UserController extends Controller
         $input = $request->all();
 
         if ($validator->passes()) {
-            // Store your user in database 
+           
             $user =  User::find(Auth::id());
              User::create([
                 'name' => $request['name'],
@@ -55,11 +48,9 @@ class UserController extends Controller
                 'tenant_id' =>1,
             ]);
 
-            return Response::json(['success' => '1']);
-
         }
         
-        return Response::json(['errors' => $validator->errors()]);
+        return redirect()->route('users')->with('success','User Succesfully Added');
     }
 
    
@@ -138,37 +129,32 @@ class UserController extends Controller
     }
 
 
-    public function profile(Request $request)
+    public function profile(Request $request, $id)
     {
          
-         $user =  User::find(Auth::id());
+         $validator = \Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
 
-            $file = $request->file('photo');
-        // Define upload path
-           $destinationPath = public_path('/profile_images/'); // upload path
-        // Upload Orginal Image           
-           $profileImage = date('YmdHis') . "." . $file->getClientOriginalExtension();
-           $file->move($destinationPath, $profileImage);
+       //return $request->all();
+
+        if ($validator->passes()) {
+
+            //return $request->all();
+           
+            $user = User::find($id);
+            $user->name = $request['name'];
+            $user->email = $request['email'];
+            $user->password = bcrypt($request['password']);
+            $user->update();
+
+        }
         
-         // If there's a UserProfile with Id of Auth_id, update its profile.
-        // If no matching model exists, create one.
-        Profile::updateOrCreate(
-            ['user_id' => $user->id],
-            [
-                'fname' => $request['fname'],
-                'lname' => $request['lname'],
-                'initial' => $request['initial'],
-                'job_title' => $request['job'],
-                'department' => $request['dept'],
-                'phone' => $request['phone'],
-                'extention' => $request['extension'],
-                'photo' => $profileImage,
-                'gender' => $request['gender'],
-                'user_id' => $user->id,
-            ]
-        );
+        return redirect()->back()->with('success','User Succesfully Updated');
     
-         return redirect()->route('profile_info')->with('success','User Profile Succesfully Updated');
+        
 
     }
 

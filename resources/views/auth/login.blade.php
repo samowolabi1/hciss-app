@@ -62,7 +62,7 @@
 
             <hr />
             <p class="text-center text-inverse">
-                &copy; 
+                &copy; HCISS | Health Blockchain Security Services
             </p>
         </form>
     </div>

@@ -27,7 +27,7 @@ class CompanyController extends Controller
      //       return view('users.edit');
      // 	}
         $staff = User::where('id',Auth::id())->first();
-        $profile = Profile::where('user_id',Auth::id())->first();
-    	return view('users.edit', compact('profile','staff'));
+        $profile = User::where('id',Auth::id())->first();
+    	return view('users.profile', compact('profile','staff'));
     }
 }

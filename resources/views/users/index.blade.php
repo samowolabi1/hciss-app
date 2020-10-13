@@ -1,14 +1,187 @@
 @extends('layouts.master')
 @section('content')
 
+<div class="page-wrapper">
+       <div class="container-fluid">
+
+    <div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Users</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-right">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item active">Users</li>
+            </ol>
+            <button type="button" class="btn btn-success d-none d-lg-block m-l-15"> Request A Demo</button>
+        </div>
+    </div>
+</div>
+
+
+
+ <div class="row">
+                    <!-- column -->
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Users</h3>
+                                
+                            </div>
+                            <div class="card-body">
+                                
+                                <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                    <tr>
+                                        <th>S/N</th>
+                                        <th>Full Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Action</th>
+                                      
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($users as $user)
+                                        <tr class="odd gradeX">
+                                            <td>{{++$i}}</td>
+                                            <td>{{$user->name}}</td>
+                                            <td>{{$user->email}}</td>
+                                             @if($user->role_id == '')
+                                                <td>Super Admin</td>
+                                            @else
+                                            <td>{{$user->role->name}}</td>
+                                            @endif
+                                        
+                                            @if($user->activate == 1)
+                                            <td>
+                                                
+                                                <form action="{{route('activateUser',$user->id)}}" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <input type="hidden" name="activate" value="0">
+                                                    <input type="submit" value="Deactivate" class="btn btn-secondary">
+                                                </form>
+
+                                            </td>
+
+                                            @else
+
+                                            <td>
+                                                <form action="{{route('activateUser',$user->id)}}" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <input type="hidden" name="activate" value="1">
+                                                    <input type="submit" value="Activate" class="btn btn-danger">
+                                                </form>
+
+                                            </td>
+                                            @endif
+                                         
+                                        </tr>
+                                    @endforeach
+                                    
+                                </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Add New User</h3>
+                            </div>
+                            <div class="card-body">
+
+                          <form method="POST" action="{{route('user.add')}}">
+            @csrf
+           
+
+            <div class="form-group m-b-15">
+                <label for="name">{{ __('Full Name') }}</label>
+                <input id="name" type="text" class="form-control input-lg" placeholder="Full Name" name="name" value="{{ old('name') }}" required autofocus>
+
+                @if ($errors->has('name'))
+                    <span class="text-danger" role="alert">
+                        <strong>{{ $errors->first('name') }}</strong>
+                    </span>
+                @endif
+            </div>
+            
+            <div class="form-group m-b-15">
+                <label for="username" >{{ __('User Name') }}</label>
+                <input id="username" type="text" class="form-control input-lg" placeholder="username" name="username" value="{{ old('username') }}" required autofocus>
+
+                @if ($errors->has('username'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('username') }}</strong>
+                    </span>
+                @endif
+            </div>
+            
+            <div class="form-group m-b-15">
+                <label for="email">{{ __('E-Mail Address') }}</label>
+                <input id="email" type="email" class="form-control input-lg" placeholder="Email Address" name="email" value="{{ old('email') }}" required autofocus />
+
+                @if ($errors->has('email'))
+                    <span class="text-danger" role=" alert">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
+            </div>
+
+            <div class="form-group m-b-15">
+                <label for="password">{{ __('Password') }}</label>
+                <input id="password" type="password" class="form-control input-lg" placeholder="password" name="password" required>
+
+                @if ($errors->has('password'))
+                    <span class="text-danger" role="alert">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                @endif
+            </div>
+
+            <div class="form-group m-b-15">
+                <label for="password-confirm">{{ __('Confirm Password') }}</label>
+                    <input id="password-confirm" type="password" class="form-control input-lg" name="password_confirmation" required>
+            </div>
+         
+            <div class="register-buttons">
+                <button type="submit" class="btn btn-primary">Add User</button>
+            </div>
+            
+        </form>
+                                    </div>
+
+                                    </div>
+                        
+                    </div>
+                </div>
+
+
+</div>
+</div>
+
+
+
+
+
+
+<!-- 
+
+
+
+
+
     <div id="content" class="content">
-        <!-- begin breadcrumb -->
-        <!-- end breadcrumb -->
-        <!-- begin page-header -->
+      
         <h1 class="page-header"></h1>
-        <!-- end page-header -->
         
-        <!-- content begins -->
         <div class="row">
             <div class="col-md-12 pr-5">
               
@@ -20,7 +193,7 @@
                 <a class="btn btn-danger pull-right" href="#modal-dialog" data-toggle="modal" >Add User <i class="fa fa-plus"></i></a>
                 @endcan
                 <br><br>
-                <!-- Delete confirmation modals -->
+             
                 <div id="DeleteModal" class="modal fade text-danger" role="dialog">
                    <div class="modal-dialog ">
                      <form action="" id="deleteForm" method="GET">
@@ -31,7 +204,7 @@
                              </div>
                              <div class="modal-body">
                                  {{ csrf_field() }}
-                                 <!-- {{ method_field('DELETE') }} -->
+                               
                                  <h4 class="text-center"> You're about to delete a user ?</h4>
                              </div>
                              <div class="modal-footer">
@@ -44,8 +217,7 @@
                      </form>
                    </div>
                 </div>
-                <!-- Delete modal ends -->
-                <!-- starts New User modal -->
+               
                 <div class="modal fade" id="modal-dialog">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -62,8 +234,7 @@
                                           <strong>Success!</strong> Check your mail for login confirmation!!
                                         </div>
                                     </div>
-                                    <!--modal body start  -->
-                                    <!-- action="{{ route('user.add') }}" -->
+                                  
                                     <form id="Register" >
                                         @csrf
 
@@ -111,7 +282,7 @@
 
                                              <button type="submit" id="submitForm" class="btn btn-primary btn-block btn-lg">Register User</button>
                                     </form>        
-                                <!-- ends -->
+                             
                                 </div>
                                 <div class="modal-footer">
                                     <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
@@ -120,13 +291,9 @@
                     </div>
                 </div>
 
-                <!-- New User modal ends -->
-             
-                <!-- end page-header -->
-                
-                <!-- begin row -->
+           
                 <div class="row">
-                    <!-- begin col-6 -->
+                
                     <div class="col-md-12">
                         <div class="tab-content">
                             <div class="tab-pane fade" id="nav-pills-tab-1">
@@ -181,13 +348,7 @@
 
                                             </td>
 
-                                            <!-- <td>
-                                                <form action="{{ route('deleteUser', $user->id) }}" method="post">
-                                                    @csrf
-                                                    <input type="hidden" name="delete">
-                                                    <button type="submit"><i class="fa fa-trash"></i></button>
-                                                </form>
-                                            </td> -->
+                                       
                                              @endcan
                                         </tr>
                                     @endforeach
@@ -200,7 +361,7 @@
                             </div>
                             <div class="tab-pane fade active in" id="nav-pills-tab-2">
                                 <div class="row">
-                                <!-- begin col-3 -->
+                             
                                 @foreach($users as $user)  
                                     <div class="col-md-3 col-sm-6">
                                         <div class="widget widget-stats bg-blue">
@@ -234,7 +395,7 @@
                 <div class="dividerr"></div>   
             </div>        
         </div>
-    </div>
+    </div> -->
 @endsection
 @section('extra-script')
     <script type="text/javascript">

@@ -44,7 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('/showUser/{id}',  'UserController@show')->name('showUser');
 
-	Route::post('userProfile',  'UserController@profile')->name('userProfile');
+	Route::put('userProfile/{id}',  'UserController@profile')->name('userProfile');
 
 	Route::get('deleteUser/{id}',  'UserController@destroy')->name('deleteUser');
 
@@ -60,6 +60,11 @@ Route::group(['middleware' => 'auth'], function () {
 
 	//vendors
 	Route::get('/vendors', 'VendorController@index')->name('vendors');
+
+
+	Route::get('/letters', 'LetterController@index')->name('letters');
+
+	Route::get('/contacts', 'ContactController@index')->name('contacts');
 
 	//employees
 	Route::get('/employees', 'EmployeeController@index')->name('employees');
@@ -80,10 +85,14 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/user/permissions/add','PermissionController@store')->name('user.permissions.add');
 	Route::post('/user/permissions/revoke','PermissionController@detach')->name('user.permissions.revoke');
 
+	Route::post('/category-add','CategoryController@store')->name('category.add');
+	Route::delete('/category-delete/{id}','CategoryController@destroy')->name('category.del');
+
 	Route::get('/blog','BlogController@index')->name('blog');
 	Route::post('/blog-post/add','BlogController@store')->name('blog.add');
 	Route::get('/blog-show/{id}','BlogController@show')->name('blog.show');
 	Route::get('/blog-edit','BlogController@edit')->name('blog.edit');
 	Route::put('/blog/update/{id}','BlogController@update')->name('blog.update');
+	Route::delete('/blog-delete/{id}','BlogController@destroy')->name('blog.del');
 
 });

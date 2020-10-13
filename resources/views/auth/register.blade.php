@@ -70,7 +70,7 @@
             
             <hr />
             <p class="text-center text-inverse">
-                &copy; Anonymous All Right Reserved 2019
+                &copy; HCISS | Health Blockchain Security Services
             </p>
         </form>
     </div>

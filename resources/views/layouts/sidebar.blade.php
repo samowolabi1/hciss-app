@@ -35,7 +35,7 @@
                                 </a>
                         @endcan
                             </li>
-                        <li> <a class="waves-effect waves-dark" href="newsletter.html" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="{{route('letters')}}" aria-expanded="false"><i
                                     class="fa fa-envelope"></i><span class="hide-menu">Newsletter Signups</span></a></li>
                         <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i
                                     class="fa fa-check-circle"></i><span class="hide-menu"></span>Demo Requests</a></li>
@@ -45,10 +45,16 @@
                                     class="fa fa-cogs"></i><span class="hide-menu"></span>Settings</a></li>
                         <li> <a class="waves-effect waves-dark" href="privacy-policy.html" aria-expanded="false"><i
                                     class="fa fa-bookmark-o"></i><span class="hide-menu"></span>Privacy Policy</a></li>
-                        <li> <a class="waves-effect waves-dark" href="profile.html" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="{{route('edit_info')}}" aria-expanded="false"><i
                                     class="fa fa-user-circle-o"></i><span class="hide-menu"></span>Profile</a></li>
-                        <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i
-                                    class="fa fa-sign-out"></i><span class="hide-menu"></span>Logout</a></li>
+                        <li> <a class="waves-effect waves-dark" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();" aria-expanded="false"><i
+                                    class="fa fa-sign-out"></i><span class="hide-menu"></span>Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                                </li>
                         <div class="text-center m-t-30">
 
 <!--  DEMO BUTTON-->     @canany(['isUser'])

@@ -2,148 +2,89 @@
 
 @section('content')
 
-<div class="content">
-    <div class="col-md-8">
-        <div class="panel panel-inverse">
-            <div class="panel-heading">
-                <div class="panel-heading-btn">
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-                </div>
-                <h4 class="panel-title">Profile Infomation</h4>
-            </div>
-            <div class="panel-body">
-                <div class="profile-container">
-                        <!-- begin profile-section -->
-                        <div class="profile-section">
-                            <!-- begin profile-left -->
-                            <div class="profile-left">
-                                <!-- begin profile-image -->
-                                <div class="profile-image">
-                                   @if ($user->profiles)
-                                   <img src="{{asset('profile_images/'.$user->profiles->photo)}}" />
-                                    @else
-                                     <img src="/img/user-13.jpg" alt="" /> 
-                                    @endif
-                                    <!--  -->
-                                    <i class="fa fa-user hide"></i>
-                                </div>
-                                <!-- end profile-image -->
-                                <div class="m-b-10">
-                                    <a href="{{route('edit_info')}}" class="btn btn-warning btn-block btn-sm">Edit Information</a>
-                                </div>
 
-                            </div>
-                            <!-- end profile-left -->
-                            <!-- begin profile-right -->
-                            <div class="profile-right">
-                                <!-- begin profile-info -->
-                                <div class="profile-info">
-                                    <!-- begin table -->
-                                    <div class="table-responsive">
-                                        @if (! is_null($profile))
-                                        <table class="table table-profile">
-                                            <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th>
-                                                        <h4>User Profile Name</h4>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr class="field">
-                                                    <td class="field">First Name</td>
-                                                    <td> {{$profile->fname}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="field">Last Name</td>
-                                                    <td>{{$profile->lname}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="field">Gender</td>
-                                                    <td>{{$profile->gender}}</td>
-                                                </tr>
-                                                <tr class="field">
-                                                    <td class="field">Phone Number</td>
-                                                    <td>{{$profile->phone}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="field">Office Line</td>
-                                                    <td>{{$profile->extention}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="field">Job Title</td>
-                                                    <td>{{$profile->job_title}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="field">Department</td>
-                                                    <td>{{$profile->department}}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        @else
-                                        <h4 class="panel-heading">No Profile content yet Please create one</h4>
-                                        @endif
-                                    </div>
-                                    <!-- end table -->
-                                </div>
-                                <!-- end profile-info -->
-                            </div>
-                            <!-- end profile-right -->
+        <div class="page-wrapper">
+       
+            <div class="container-fluid">
+             
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h4 class="text-themecolor">Profile</h4>
+                    </div>
+                    <div class="col-md-7 align-self-center text-right">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                <li class="breadcrumb-item active">Profile</li>
+                            </ol>
+                            <button type="button" class="btn btn-success d-none d-lg-block m-l-15"> Request A Demo</button>
                         </div>
-                        <!-- end profile-section -->
-                        
-                        <!-- end profile-section -->
-                </div>      
-            </div>
-        </div>
-    </div>
-   <!--  <div class="col-md-4">
-        <div class="panel panel-inverse">
-            <div class="panel-heading">
-                <div class="panel-heading-btn">
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
-                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning " data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                    </div>
                 </div>
-                <h4 class="panel-title">Change Password Here</h4>
-            </div>
-            <div class="panel-body">
-                <div class="panel-body">
-                            <form class="form-horizontal" action="{{ route('changepass', $staff->id) }}" method="POST" name="update_product">
-                                                @csrf
-                                                @method('PUT')
-                                <fieldset>
-                                    
-                                   <div class="form-group">
-                                <label class="col-md-4 control-label">New Password</label>
-                                <div class="col-md-8">
-                                    <input type="password" id="password" class="form-control" placeholder="Enter password" required />
-                                </div>
+               
+                <div class="row">
+                    
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <center class="m-t-30"> 
+                                     @if ($user->profiles)
+                                        <img src="{{asset('profile_images/'.$user->profiles->photo)}}" class="img-circle" width="150" />
+                                        @else
+                                        <img src="/img/user-13.jpg" alt="" class="img-circle" width="150" /> 
+                                     @endif
+                                    <h4 class="card-title m-t-10">{{$profile->name}}</h4>
+                                    <h6 class="card-subtitle">{{$profile->role->name}}</h6>
+                                   
+                                </center>
                             </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">Confirm Password</label>
-                                <div class="col-md-8">
-                                    <input type="password" id="confirm_password" class="form-control" placeholder="Confirm Password" />
-                                </div>
-                            </div>
-                                    
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                        <div class="card">
+                           
+                            <div class="card-body">
+                                <form class="form-horizontal form-material" enctype="multipart/form-data" method="POST" action="{{route('userProfile',$profile->id)}}">
+                                    @csrf
+                                    @method('PUT')
                                     <div class="form-group">
-                                        <div class="col-md-8 col-md-offset-4">
-                                            <button type="submit" class="btn btn-sm btn-primary m-r-5">Submit</button>
+                                        <label class="col-md-12">Name</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="{{$profile->name}}" class="form-control form-control-line" name="name">
                                         </div>
                                     </div>
-                                </fieldset>
-                            </form>
+                                    <div class="form-group">
+                                        <label for="example-email" class="col-md-12">Email</label>
+                                        <div class="col-md-12">
+                                            <input type="email" value="{{$profile->email}}" 
+                                                class="form-control form-control-line" name="email"
+                                                id="example-email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Password</label>
+                                        <div class="col-md-12">
+                                            <input type="password" name="password" value="{{$profile->password}}"
+                                                class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                  
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <button class="btn btn-success">Update Profile</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
+                    </div>
+                  
+                </div>
+            
             </div>
+
         </div>
-        
-    </div> -->
-    
-</div>
 
 
 

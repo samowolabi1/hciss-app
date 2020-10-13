@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>TemplateMi</title>
+        <title>HCISS | Health Blockchain Security Services</title>
 
         <link rel="icon" href="{{URL::to('img/WAD.png')}}">
         <!-- Fonts -->
@@ -81,7 +81,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-2">
-                                <div id="colorlib-logo"><a href="#">Temp</a></div>
+                                <div id="colorlib-logo"><a href="#">HCISS</a></div>
                             </div>
                             <div class="col-md-10 text-right menu-1">
                                 <ul>
@@ -111,43 +111,23 @@
                 </div>
             </nav>
 
-            <section id="home" class="video-hero" style="height:600px; background-color: grey;">
-                        <div class="overlay"></div>
+            <section id="home">
+                        <div></div>
                             <a></a> 
                             <div class="display-t text-center">
                                 <div>
                                     <div class="container">
                                         <div class="col-md-12 col-md-offset-0">
                                             <div class="animate-box">
-                                                <h2>My App Templates</h2>
-                                               <!--  <p>Access real-time financial report from all your banks in one place</p>
-                                            </div> -->
+                                                <h2 class="text-primary">HCISS | Health Blockchain Security Services</h2>
+                                               
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </section>
 
-              
-
-                <!-- starst new stuff -->       
-                            
-                       
-
-                      
-
-                     <!--    <footer id="colorlib-footer">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12 text-center">
-                                        <p>
-                                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Smarf Tech<a href="#" target="_blank"></a>
-           
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </footer> -->
+        
                     </div>
 
                     <div class="gototop js-top">

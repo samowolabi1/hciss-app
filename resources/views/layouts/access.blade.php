@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>TemplateMi</title>
+        <title>HCISS | Health Blockchain</title>
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
         <meta content="" name="description" />
         <meta content="" name="author" />
@@ -44,7 +44,7 @@
                             </button>
 
                             <!-- Branding Image -->
-                            <a class="navbar-brand" alt="" href="#">Template</a>
+                            <a class="navbar-brand" alt="" href="#">HCISS</a>
                     </div>
                     <!-- end mobile sidebar expand / collapse button -->
                     
