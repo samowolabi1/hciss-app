@@ -43,8 +43,8 @@ class UserController extends Controller
                 'name' => $request['name'],
                 'email' => $request['email'],
                 'password' => bcrypt($request['password']),
-                'role_id' => $request['role'],
-                'activate' =>1,
+                'role_id' =>2,
+                'activate' =>0,
                 'tenant_id' =>1,
             ]);
 
