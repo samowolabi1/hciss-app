@@ -36,7 +36,7 @@ class BlogController extends Controller
     	$validated = $request->validate([
 
     		'title' => 'required',
-            'category_id' => 'required',
+        'category_id' => 'required',
     		'image' => 'required',
     		'content' => 'required',
     		'tags' => 'required'

@@ -37,11 +37,11 @@
                             </li>
                         <li> <a class="waves-effect waves-dark" href="{{route('letters')}}" aria-expanded="false"><i
                                     class="fa fa-envelope"></i><span class="hide-menu">Newsletter Signups</span></a></li>
-                        <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="{{route('demo.list')}}" aria-expanded="false"><i
                                     class="fa fa-check-circle"></i><span class="hide-menu"></span>Demo Requests</a></li>
-                        <li> <a class="waves-effect waves-dark" href="messages.html" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="{{route('contacts')}}" aria-expanded="false"><i
                                     class="fa fa-comments"></i><span class="hide-menu"></span>Messages</a></li>
-                        <li> <a class="waves-effect waves-dark" href="settings.html" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="{{route('contacts')}}" aria-expanded="false"><i
                                     class="fa fa-cogs"></i><span class="hide-menu"></span>Settings</a></li>
                         <li> <a class="waves-effect waves-dark" href="privacy-policy.html" aria-expanded="false"><i
                                     class="fa fa-bookmark-o"></i><span class="hide-menu"></span>Privacy Policy</a></li>

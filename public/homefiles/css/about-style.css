@@ -1,0 +1,41 @@
+.image-div{
+    margin-top: 50px;
+    height: 350px;
+    /* width: 400px; */
+    /* background-color: #746c7a; */
+    z-index: -2;
+}
+.image-div img{
+    height: 300px;
+    width: auto
+}
+.dark-overlay{
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 50vh;
+}
+.wrapper{
+    margin-top: -100px;
+}
+.banner{
+    height: 50vh;
+    width: 100vw;
+}
+
+.section-icon{
+    position: absolute;
+    width: 900px;
+    background: #f4f4f4;
+    padding: 20px;
+    margin-top: -100px;
+
+}
+.section-icon i{
+    color: var(--primary-color);
+    font-size: 5rem;
+    text-align: center;
+
+}

@@ -11,14 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 Route::get('/admin', function () {
     return view('welcome_admin');
 });
+
+Route::get('/','PagesController@index')->name('index');
+Route::get('/services','PagesController@service')->name('service');
+Route::get('/contact-us','PagesController@support')->name('contact');
+Route::get('/hciss-history','PagesController@history')->name('history');
+Route::get('/demo','PagesController@demo')->name('demo');
+Route::post('/demo-request','DemoController@store')->name('demo.request');
+Route::get('/demo-request-list','DemoController@index')->name('demo.list');
+Route::get('/blog-page','PagesController@blog')->name('blogging');
 
  // Authentication Routes...
 Route::get('admin/login','AuthAdmin\LoginController@showLoginForm')->name('login.admin');
@@ -28,12 +37,11 @@ Route::post('admin/logout','AuthAdmin\LoginController@logout')->name('logout.adm
 
 Auth::routes();
 
-Route::get('/auth/activate', 'Auth\ActivationController@activate')->name('auth.activate');
+
 
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/start', 'HomeController@start')->name('start');
 
 Route::get('admin/home', 'HomeAdminController@index')->name('home.admin');
 
@@ -58,7 +66,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
-	//vendors
+	
 	Route::get('/vendors', 'VendorController@index')->name('vendors');
 
 
