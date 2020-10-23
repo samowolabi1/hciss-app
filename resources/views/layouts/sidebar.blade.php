@@ -41,9 +41,9 @@
                                     class="fa fa-check-circle"></i><span class="hide-menu"></span>Demo Requests</a></li>
                         <li> <a class="waves-effect waves-dark" href="{{route('contacts')}}" aria-expanded="false"><i
                                     class="fa fa-comments"></i><span class="hide-menu"></span>Messages</a></li>
-                        <li> <a class="waves-effect waves-dark" href="{{route('contacts')}}" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="{{route('settings')}}" aria-expanded="false"><i
                                     class="fa fa-cogs"></i><span class="hide-menu"></span>Settings</a></li>
-                        <li> <a class="waves-effect waves-dark" href="privacy-policy.html" aria-expanded="false"><i
+                        <li> <a class="waves-effect waves-dark" href="{{route('privacies')}}" aria-expanded="false"><i
                                     class="fa fa-bookmark-o"></i><span class="hide-menu"></span>Privacy Policy</a></li>
                         <li> <a class="waves-effect waves-dark" href="{{route('edit_info')}}" aria-expanded="false"><i
                                     class="fa fa-user-circle-o"></i><span class="hide-menu"></span>Profile</a></li>

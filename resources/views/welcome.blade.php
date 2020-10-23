@@ -225,44 +225,7 @@ background: linear-gradient(45deg, rgba(239,239,239,1) 54%, rgba(204,204,204,1) 
 </section>
 
 <!-- Parners -->
-<div class="brands">
-  <div class="container">
-      <div class="row">
-          <div class="col">
-              <div class="brands_slider_container">
-                  <div class="owl-carousel owl-theme brands_slider">
-                      <div class="owl-item">
-                          <div class="brands_item d-flex flex-column justify-content-center"><img src="" alt=""></div>
-                      </div>
-                      <div class="owl-item">
-                          <div class="brands_item d-flex flex-column justify-content-center"><img src="" alt=""></div>
-                      </div>
-                      <div class="owl-item">
-                          <div class="brands_item d-flex flex-column justify-content-center"><img src="" alt=""></div>
-                      </div>
-                      <div class="owl-item">
-                          <div class="brands_item d-flex flex-column justify-content-center"><img src="" alt=""></div>
-                      </div>
-                      <div class="owl-item">
-                          <div class="brands_item d-flex flex-column justify-content-center"><img src="" alt=""></div>
-                      </div>
-                      <div class="owl-item">
-                          <div class="brands_item d-flex flex-column justify-content-center"><img src="" alt=""></div>
-                      </div>
-                      <div class="owl-item">
-                          <div class="brands_item d-flex flex-column justify-content-center"><img src="" alt=""></div>
-                      </div>
-                      <div class="owl-item">
-                          <div class="brands_item d-flex flex-column justify-content-center"><img src="" alt=""></div>
-                      </div>
-                  </div> <!-- Brands Slider Navigation -->
-                  <div class="brands_nav brands_prev"><i class="fas fa-chevron-left"></i></div>
-                  <div class="brands_nav brands_next"><i class="fas fa-chevron-right"></i></div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
+
 
 <!-- End Partners -->
 <!-- APPLY FOR A DEMO -->

@@ -18,6 +18,8 @@ class ContactController extends Controller
 
     public function store(Request $request){
 
+        //return $request->all();
+
     	$validated = $request->validate([
 
     	'name' => 'required',
@@ -35,6 +37,6 @@ class ContactController extends Controller
                 'message' =>$request['message']
             ]);
     
-         return redirect()->route('contacts')->with('success','Message Sent Succesfully');
+         return redirect()->route('contact')->with('success','Message Sent Succesfully');
     }
 }

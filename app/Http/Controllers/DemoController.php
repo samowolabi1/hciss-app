@@ -13,7 +13,7 @@ class DemoController extends Controller
 
      public function index(){
 
-    	$demos = Demo::paginate(10);
+    	$demos = Demo::paginate(15);
     	$i = 0;
 
     	return view('demo.index',compact('demos','i'));

@@ -6,15 +6,14 @@
 
     <div class="row page-titles">
     <div class="col-md-5 align-self-center">
-        <h4 class="text-themecolor">Users</h4>
+        <h4 class="text-themecolor">Newsletters</h4>
     </div>
     <div class="col-md-7 align-self-center text-right">
         <div class="d-flex justify-content-end align-items-center">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                <li class="breadcrumb-item active">Signup Letters</li>
+                <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
             </ol>
-            <button type="button" class="btn btn-success d-none d-lg-block m-l-15"> Request A Demo</button>
+           
         </div>
     </div>
 </div>
@@ -46,19 +45,20 @@
                                     @foreach($letters as $letter)
                                         <tr class="odd gradeX">
                                             <td>{{++$i}}</td>
-                                            <td>{{$letter->name}}</td>
+                                            <td>{{$letter->email}}</td>
                                             <td>{{$letter->created_at}}</td>                                       
                                         </tr>
                                     @endforeach
                                     
                                 </tbody>
                                     </table>
+                                    <div>{{$letters->links()}}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                <!--     <div class="col-md-4">
                         <div class="card">
                             <div class="card-header">
                                 <h3></h3>
@@ -69,7 +69,7 @@
 
                                     </div>
                         
-                    </div>
+                    </div> -->
                 </div>
 
 

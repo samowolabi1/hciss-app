@@ -11,10 +11,9 @@
     <div class="col-md-7 align-self-center text-right">
         <div class="d-flex justify-content-end align-items-center">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                <li class="breadcrumb-item active">Users</li>
+                <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
             </ol>
-            <button type="button" class="btn btn-success d-none d-lg-block m-l-15"> Request A Demo</button>
+           
         </div>
     </div>
 </div>
@@ -86,6 +85,7 @@
                                     
                                 </tbody>
                                     </table>
+                                    <div>{{$users->links()}}</div>
                                 </div>
                             </div>
                         </div>

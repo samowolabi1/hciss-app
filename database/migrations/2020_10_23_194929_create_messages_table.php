@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePrivaciesTable extends Migration
+class CreateMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class CreatePrivaciesTable extends Migration
      */
     public function up()
     {
-        Schema::create('privacies', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedInteger('user_id');
+            $table->string('title')->nullable();
             $table->string('message');
             $table->timestamps();
+
+
+             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -27,6 +32,6 @@ class CreatePrivaciesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('privacies');
+        Schema::dropIfExists('messages');
     }
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Auth;
 use App\User;
 use Illuminate\Http\Request;
+use App\Demo;
+use App\Letter;
 
 
 class HomeController extends Controller
@@ -26,7 +28,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('layouts.dashboard');
+        $users = User::all();
+        $demos = Demo::all();
+        $letters = Letter::all();
+        $i = 0;
+
+        //return $users;
+
+        return view('layouts.dashboard',compact('users','demos','letters','i'));
     }
 
     public function start(){

@@ -11,10 +11,9 @@
     <div class="col-md-7 align-self-center text-right">
         <div class="d-flex justify-content-end align-items-center">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                <li class="breadcrumb-item active">Contact Messages</li>
+                <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
             </ol>
-            <button type="button" class="btn btn-success d-none d-lg-block m-l-15"> Request A Demo</button>
+           
         </div>
     </div>
 </div>
@@ -26,7 +25,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Demo Requests</h4>
+                                <h4 class="card-title">Messages</h4>
                                 
                             </div>
                             <div class="card-body">
@@ -42,6 +41,7 @@
                                         <th>Subject</th>
                                         <th>Phone</th>
                                         <th>Message</th>
+                                        <th>Date Sent</th>
                                       
                                     </tr>
                                 </thead>
@@ -61,6 +61,7 @@
                                     
                                 </tbody>
                                     </table>
+                                    <div>{{$contacts->links()}}</div>
                                 </div>
                             </div>
                         </div>

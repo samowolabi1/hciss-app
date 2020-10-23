@@ -17,7 +17,7 @@
 
       <link href="{{url('homefiles/css/coming-soon.css')}}" rel="stylesheet">
     <link href="{{url('homefiles/css/about-style.css')}}" rel="stylesheet">
-      <link href="{{url('homefiles/css/app.css')}}" rel="stylesheet">
+   <!--    <link href="{{url('homefiles/css/app.css')}}" rel="stylesheet"> -->
     
   <link href="{{url('homefiles/css/util.css')}}" rel="stylesheet">
   <link href="{{url('homefiles/css/main.css')}}" rel="stylesheet">

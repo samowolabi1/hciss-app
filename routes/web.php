@@ -23,6 +23,7 @@ Route::get('/admin', function () {
 Route::get('/','PagesController@index')->name('index');
 Route::get('/services','PagesController@service')->name('service');
 Route::get('/contact-us','PagesController@support')->name('contact');
+Route::post('/contact-message','ContactController@store')->name('contact.message');
 Route::get('/hciss-history','PagesController@history')->name('history');
 Route::get('/demo','PagesController@demo')->name('demo');
 Route::post('/demo-request','DemoController@store')->name('demo.request');
@@ -49,13 +50,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 	//users
 	Route::get('/users', 'UserController@index')->name('users');
-
 	Route::get('/showUser/{id}',  'UserController@show')->name('showUser');
-
 	Route::put('userProfile/{id}',  'UserController@profile')->name('userProfile');
-
 	Route::get('deleteUser/{id}',  'UserController@destroy')->name('deleteUser');
-
 	Route::put('updateUser/{id}',  'UserController@update')->name('updateUser');
 	Route::put('activateUser/{id}',  'UserController@activate')->name('activateUser');
 	Route::put('change-password/{id}',  'UserController@password')->name('changepass');
@@ -63,6 +60,14 @@ Route::group(['middleware' => 'auth'], function () {
 	// Route::post('deleteUser/{id}',  'UserController@destroy')->name('deleteUser');
 
 	Route::post('/user', 'UserController@store')->name('user.add');
+
+	//User Message
+	Route::post('/user-message','MessageController@store')->name('user.message');
+
+
+	Route::post('/privacy-message','PrivacyController@store')->name('privacy.message');
+	Route::get('/privacy-policy','PrivacyController@index')->name('privacies');
+	Route::get('/web-settings','PagesController@setting')->name('settings');
 
 
 

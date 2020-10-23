@@ -17,7 +17,7 @@ class UserController extends Controller
     public function index(){
 
         $user =  User::find(Auth::id());
-        $users = User::where('tenant_id', $user->tenant_id)->get(); 
+        $users = User::where('tenant_id', $user->tenant_id)->paginate(15); 
         $roles = Role::whereIn('id',[2,3,4])->get();
         $i = 0;
 
