@@ -64,33 +64,61 @@ class BlogController extends Controller
 
     public function edit($id){
 
-    	$blog = Blog::find($id);
+      //return $id;
 
-    	return view('blogs.edit',compact('blog'));
+    	$blog = Blog::find($id);
+       $cats = Category::all();
+
+    	return view('blogs.edit',compact('blog','cats'));
     }
 
     public function update(Request $request, $id){
 
-    	$validated = $request->validate([
+      $oblog = Blog::find($id);
 
-    		'title' => 'required',
-    		'image' => 'required',
-    		'content' => 'required',
-    		'tags' => 'bail|required',
-    	]);
+     //  return $request->all();
 
-    	 
-           $file = $request->file('image');
-           $destinationPath = public_path('/blog_images/');       
-           $blogImage = date('YmdHis') . "." . $file->getClientOriginalExtension();
-           $file->move($destinationPath, $blogImage);
-        
-            $blog = new Blog;
-            $user_id = Auth::id();
-			$blog->title = $request['title'];
+    	// $validated = $request->validate([
+
+    	// 	'title' => 'required',
+    	// 	'image' => 'required',
+    	// 	'content' => 'required',
+    	// 	'tags' => 'bail|required',
+    	// ]);
+
+    	if($request['image'] == ''){
+      $blogImage = $oblog->image;
+      }else{  
+      $file = $request->file('image');
+      $destinationPath = public_path('/blog_images/');       
+      $blogImage = date('YmdHis') . "." . $file->getClientOriginalExtension();
+      $file->move($destinationPath, $blogImage);
+       }
+
+       if ($request['title'] == '') {
+         $blogtitle = $oblog->title;
+       }else{
+        $blogtitle = $request['title'];
+       }
+
+        if ($request['content'] == '') {
+         $blogcontent = $oblog->content;
+       }else{
+        $blogcontent = $request['content'];
+       }
+
+        if ($request['tags'] == '') {
+         $blogtags = $oblog->tags;
+       }else{
+        $blogtags = $request['tags'];
+       }
+
+      $blog = Blog::find($id);
+      $blog->user_id = Auth::id();
+			$blog->title = $blogtitle;
 			$blog->image = $blogImage;
-			$blog->content = $request['content'];
-			$blog->tags = $request['tags'];
+			$blog->content = $blogcontent;
+			$blog->tags = $blogtags;
 			$blog->save();
     
          return redirect()->route('blog')->with('success','Post Updated Succesfully');

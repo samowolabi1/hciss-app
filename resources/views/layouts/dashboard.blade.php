@@ -19,12 +19,60 @@
                             </ol>
 
                             @canany(['isUser'])
-                            <button type="button" class="btn btn-success d-none d-lg-block m-l-15"> Request A Demo</button>
+                            <a href="{{route('demo')}}" type="button" class="btn btn-success d-none d-lg-block m-l-15"> Request A Demo</a>
                             @endcan
+                            
                         </div>
                     </div>
                 </div>
-           
+
+                 @canany(['isUser'])
+                 <div class="row">
+                    <!-- column -->
+                     <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div>
+                                        <h5 class="card-title">User Dashboard</h5>
+                                        <h6 class="card-subtitle">User Dashboard</h6>
+                                    </div>
+                                       <div class="ml-auto">
+                                        <!-- <a class="btn btn-success" href="{{route('demo.list')}}">View All</a> -->
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                           <!-- something here -->
+                        </div>
+                    </div>
+
+
+
+
+                           <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div>
+                                        <h5 class="card-title">Users Dashboard</h5>
+                                        <h6 class="card-subtitle">User Dashboard </h6>
+                                    </div>
+                                       <div class="ml-auto">
+                                        <!-- <a class="btn btn-success" href="{{route('letters')}}">View All</a> -->
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                            <!-- something here -->
+                        </div>
+                    </div>
+
+                    
+                </div>
+                @endcan
+
+           @canany(['isSuperAdmin','isAdmin'])
                     <div class="row">
                         <div class="col-md-4 d-flex">
                             <div class="card flex" data-sr-id="10" style="visibility: visible; transform: none; opacity: 1; transition: none 0s ease 0s;">
@@ -254,6 +302,8 @@
                         </div>
                     </div>
                 </div>
+
+                @endcan
             </div>
 
 

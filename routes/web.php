@@ -26,7 +26,7 @@ Route::get('/contact-us','PagesController@support')->name('contact');
 Route::post('/contact-message','ContactController@store')->name('contact.message');
 Route::get('/hciss-history','PagesController@history')->name('history');
 Route::get('/demo','PagesController@demo')->name('demo');
-Route::post('/demo-request','DemoController@store')->name('demo.request');
+// Route::post('/demo-request','DemoController@store')->name('demo.request');
 Route::get('/demo-request-list','DemoController@index')->name('demo.list');
 Route::get('/blog-page','PagesController@blog')->name('blogging');
 
@@ -56,6 +56,12 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('updateUser/{id}',  'UserController@update')->name('updateUser');
 	Route::put('activateUser/{id}',  'UserController@activate')->name('activateUser');
 	Route::put('change-password/{id}',  'UserController@password')->name('changepass');
+
+	//demo
+	Route::post('/demo-request','DemoController@store')->name('demo.request');
+	Route::get('/demo','PagesController@demo')->name('demo');
+// Route::post('/demo-request','DemoController@store')->name('demo.request');
+Route::get('/demo-request-list','DemoController@index')->name('demo.list');
 
 	// Route::post('deleteUser/{id}',  'UserController@destroy')->name('deleteUser');
 
@@ -104,8 +110,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/blog','BlogController@index')->name('blog');
 	Route::post('/blog-post/add','BlogController@store')->name('blog.add');
 	Route::get('/blog-show/{id}','BlogController@show')->name('blog.show');
-	Route::get('/blog-edit','BlogController@edit')->name('blog.edit');
-	Route::put('/blog/update/{id}','BlogController@update')->name('blog.update');
+	Route::get('/blog-edit/{id}','BlogController@edit')->name('blog.edit');
+	Route::put('/blog-update/{id}','BlogController@update')->name('blog.update');
 	Route::delete('/blog-delete/{id}','BlogController@destroy')->name('blog.del');
 
 });

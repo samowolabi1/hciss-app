@@ -114,7 +114,7 @@
                                             <td>
 
                                                 
-                                               <form method="POST" action="{{route('blog.del',$cat->id)}}">
+                                               <form method="POST" action="{{route('blog.del',$blog->id)}}">
                                                     @method('DELETE')
                                                     @csrf
                                                     
@@ -122,7 +122,9 @@
 
                                                     <input type="submit" class="btn btn-danger delete-cat" value="delete">
                                                 </form>
-
+                                            </td>
+                                            <td>
+                                             <a class="btn btn-primary" href="{{route('blog.edit',$blog->id)}}">Edit</a>
 
                                             </td>
 
@@ -196,6 +198,8 @@
                                                 </form>
 
                                              <!--    <a href="javascript:;" data-toggle="modal" onclick = "deleteData({{$cat->id}})" data-target="#DeleteModal" class="btn btn-danger fa fa-trash"> </a> -->
+
+
 
                                             </td>
 

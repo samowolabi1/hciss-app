@@ -13,13 +13,14 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="{{ Request::is('home') ? 'active' : '' }}"> 
-
+                            
                             <a class="waves-effect waves-dark" href="{{url('/home')}}" aria-expanded="false"><i class="fa fa-tachometer"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
-
+                           
                         </li>
-                        <li class="{{ Request::is('blogs') ? 'active' : '' }}"> 
+
+                                              <li class="{{ Request::is('blogs') ? 'active' : '' }}"> 
                             @canany(['isSuperAdmin','isAdmin'])
                             <a class="waves-effect waves-dark" href="{{url('/blog')}}" aria-expanded="false"><i
                             class="fa fa-thumb-tack"></i><span class="hide-menu">Posts</span></a>
@@ -28,6 +29,14 @@
                         </li>
 
 
+                        <li class="{{ Request::is('contact') ? 'active' : '' }}"> 
+                        @canany(['isUser'])
+                        <a class="waves-effect waves-dark" href="{{route('contact')}}" aria-expanded="false"><i
+                        class="fa fa-envelope"></i><span class="hide-menu">Contact Admin</span></a>
+
+                        @endcan
+                        </li>
+
                         <li>
                          @can('isSuperAdmin')
                         <a href="{{url('/users')}}" class="waves-effect waves-dark" aria-expanded="false"><i
@@ -35,18 +44,38 @@
                                 </a>
                         @endcan
                             </li>
-                        <li> <a class="waves-effect waves-dark" href="{{route('letters')}}" aria-expanded="false"><i
-                                    class="fa fa-envelope"></i><span class="hide-menu">Newsletter Signups</span></a></li>
-                        <li> <a class="waves-effect waves-dark" href="{{route('demo.list')}}" aria-expanded="false"><i
-                                    class="fa fa-check-circle"></i><span class="hide-menu"></span>Demo Requests</a></li>
-                        <li> <a class="waves-effect waves-dark" href="{{route('contacts')}}" aria-expanded="false"><i
-                                    class="fa fa-comments"></i><span class="hide-menu"></span>Messages</a></li>
-                        <li> <a class="waves-effect waves-dark" href="{{route('settings')}}" aria-expanded="false"><i
-                                    class="fa fa-cogs"></i><span class="hide-menu"></span>Settings</a></li>
-                        <li> <a class="waves-effect waves-dark" href="{{route('privacies')}}" aria-expanded="false"><i
-                                    class="fa fa-bookmark-o"></i><span class="hide-menu"></span>Privacy Policy</a></li>
+                        <li>
+                            @canany(['isSuperAdmin','isAdmin'])
+                         <a class="waves-effect waves-dark" href="{{route('letters')}}" aria-expanded="false"><i
+                                    class="fa fa-envelope"></i><span class="hide-menu">Newsletter Signups</span></a>
+                            @endcan
+                                </li>
+                        <li>
+                        @canany(['isSuperAdmin','isAdmin'])
+                         <a class="waves-effect waves-dark" href="{{route('demo.list')}}" aria-expanded="false"><i
+                                    class="fa fa-check-circle"></i><span class="hide-menu"></span>Demo Requests</a>
+                        @endcan
+                                </li>
+                        <li> 
+                        @canany(['isSuperAdmin','isAdmin'])
+                            <a class="waves-effect waves-dark" href="{{route('contacts')}}" aria-expanded="false"><i
+                                    class="fa fa-comments"></i><span class="hide-menu"></span>Messages</a>
+                        @endcan
+                                </li>
+                        <li>
+                        @canany(['isSuperAdmin','isAdmin'])
+                         <a class="waves-effect waves-dark" href="{{route('settings')}}" aria-expanded="false"><i
+                                    class="fa fa-cogs"></i><span class="hide-menu"></span>Settings</a>
+                        @endcan
+                                </li>
+                        <li>
+                        @canany(['isSuperAdmin','isAdmin'])
+                         <a class="waves-effect waves-dark" href="{{route('privacies')}}" aria-expanded="false"><i
+                                    class="fa fa-bookmark-o"></i><span class="hide-menu"></span>Privacy Policy</a>
+                        @endcan
+                                </li>
                         <li> <a class="waves-effect waves-dark" href="{{route('edit_info')}}" aria-expanded="false"><i
-                                    class="fa fa-user-circle-o"></i><span class="hide-menu"></span>Profile</a></li>
+                                    class="fa fa-user"></i><span class="hide-menu"></span>Profile</a></li>
                         <li> <a class="waves-effect waves-dark" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();" aria-expanded="false"><i
@@ -58,8 +87,7 @@
                         <div class="text-center m-t-30">
 
 <!--  DEMO BUTTON-->     @canany(['isUser'])
-                            <a href="#"
-                                class="btn waves-effect waves-light btn-success hidden-md-down"> Request A Demo</a>
+                            <a href="{{route('demo')}}" class="btn waves-effect waves-light btn-success hidden-md-down"> Request A Demo</a>
                          @endcan
                         </div>
                     </ul>
