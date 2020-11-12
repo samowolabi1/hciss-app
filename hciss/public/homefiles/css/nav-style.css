@@ -1,0 +1,45 @@
+.logo{
+    height: 100px;
+    width: auto;
+    
+}
+.nav-link.active > a{
+    border-bottom: 2px solid var(--primary-color) !important;
+    color: white
+
+}
+.dropdown-item:hover{
+    background-color: var(--primary-color);
+    color: #f4f4f4
+}
+
+@media (max-width: 544px) {  
+    .brand {display: none} /*1rem = 16px*/
+    .logo{
+        /* padding: 20px; */
+        height: 70px;
+        width: auto;
+
+    
+    }
+    .banner{
+        
+        background-attachment: fixed; 
+        height: max-content;
+        width: 100vw;
+        background-size: cover;
+    
+        
+    }
+    .banner .container .row h1{
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        
+    }
+}
+
+@media(max-width: 320px){
+    .banner p{
+        font-size: .78rem !important;
+    }
+}

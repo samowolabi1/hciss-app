@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Open+Sans&family=Roboto&display=swap');
+
+
+:root{
+    --light-text: #ccc ;
+    --dark-text: #333;
+    --dark-bg:#333;
+    --light-bg: #ccc;
+    --primary-color: #00a9b5 ;
+    --secondary-color: #3ca3d0;
+    --tertiary-color: #3b3b3d;
+    --primary-font: 'Montserrat', sans-serif
+}
+
+body{
+    background-image: url('../images/hciss-hero.jpg');
+    background-repeat: no-repeat;
+    background-size: 130%;
+    color: #ccc;
+    min-height: 700px;
+    background-size: cover;
+    background-attachment: fixed; }
+
+  .dark-overlay{
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 700px;
+  }
+.mt-10{
+    margin-top: 100px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 150px;
+}
+.main-text{
+    font-family: var(--primary-font);
+      font-size: 3rem
+}
+
+.coming-logo{
+    height: 200px
+}
+.fab{
+    font-size: 30px;
+    color: var(--primary-color);
+    display: inline-block;
+    margin: 10px;
+}
+
+@media only screen and (max-width: 780px){
+    .content{
+        margin-left: 50px;
+    }
+}
